@@ -1,4 +1,5 @@
 # RISC-V Verification Framework
+<<<<<<< HEAD
 
 A small SystemVerilog-based verification project for RISC-V processor components.
 
@@ -18,3 +19,4 @@ tb/       SystemVerilog testbenches
 scripts/  Simulation scripts
 docs/     Verification documentation
 waves/    Generated waveform files
+=======

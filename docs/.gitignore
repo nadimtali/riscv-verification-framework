@@ -1,0 +1,15 @@
+# Compiled simulation outputs
+*.out
+*.vvp
+
+# Waveform dumps
+*.vcd
+
+# macOS
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Temporary files
+*.log

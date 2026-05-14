@@ -1,49 +1,56 @@
 # RISC-V Verification Framework
 
-A small SystemVerilog-based verification project for RISC-V processor components.
+A SystemVerilog-based verification framework focused on validating RISC-V processor components using self-checking testbenches, automated simulation flows, waveform analysis, and scalable verification methodologies.
 
-## Current Status
-
-- RV32I ALU RTL implemented
-- Self-checking ALU testbench implemented
-- Automated simulation script added
-- VCD waveform generation enabled
-- All current tests passing
-
-## Project Structure
-
-```text
-rtl/      RTL design files
-tb/       SystemVerilog testbenches
-scripts/  Simulation scripts
-docs/     Verification documentation
-waves/    Generated waveform files
-# RISC-V Verification Framework
-A modular verification framework for RISC-V processor functional validation.
+---
 
 ## Overview
 
-This project is being developed as a verification environment for RISC-V processor components.  
-The framework will focus on automated testing, waveform-based debugging, functional checking, and coverage-driven verification concepts.
+This project is being developed as a modular verification environment for RISC-V hardware components.
 
-## Planned Features
+The framework focuses on:
 
-- SystemVerilog testbench structure
-- Directed instruction tests
-- Automated simulation flow
-- Waveform analysis
-- Functional correctness checking
-- Coverage-driven verification methodology
-- RISC-V instruction validation
+- Functional verification
+- Self-checking testbenches
+- Automated simulation
+- Waveform-based debugging
+- Verification planning
+- Directed and randomized testing
+- Assertion-based verification
 
-## Technologies
+---
 
-- SystemVerilog
-- Digital Design
-- Computer Architecture
-- Verification Methodology
-- Git/GitHub
+## Current Status
 
-## Status
+### Implemented
 
-Work in progress.
+- RV32I ALU RTL module
+- Self-checking ALU testbench
+- Automated simulation script
+- VCD waveform generation
+- Verification plan documentation
+
+### Current Verification Coverage
+
+- ADD
+- SUB
+- AND
+- OR
+- XOR
+- SLL
+- SRL
+- SRA
+- SLT
+- SLTU
+- Zero flag behavior
+
+---
+
+## Directory Structure
+
+```text
+rtl/      RTL design modules
+tb/       SystemVerilog verification testbenches
+scripts/  Simulation automation scripts
+docs/     Verification documentation
+waves/    Generated waveform files

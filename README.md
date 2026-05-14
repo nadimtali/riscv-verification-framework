@@ -1,5 +1,4 @@
 # RISC-V Verification Framework
-** IN PROGRESS **
 A modular verification framework for RISC-V processor functional validation.
 
 ## Overview

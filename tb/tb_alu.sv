@@ -49,6 +49,7 @@ module tb_alu;
 
         $display("Starting RISC-V ALU verification...");
 
+        // Directed tests
         check(32'd10, 32'd5,  4'd0, 32'd15, "ADD basic");
         check(32'd10, 32'd5,  4'd1, 32'd5,  "SUB basic");
         check(32'hF0F0, 32'h0FF0, 4'd2, 32'h00F0, "AND basic");
@@ -71,6 +72,36 @@ module tb_alu;
         end else begin
             $display("[PASS] zero flag works");
             tests_passed++;
+        end
+
+        // Randomized tests using golden model
+        $display("Starting randomized ALU tests...");
+
+        for (int i = 0; i < 100; i++) begin
+            logic [31:0] rand_a;
+            logic [31:0] rand_b;
+            logic [3:0]  rand_op;
+            logic [31:0] expected;
+
+            rand_a = $urandom;
+            rand_b = $urandom;
+            rand_op = $urandom_range(0, 9);
+
+            case (rand_op)
+                4'd0: expected = rand_a + rand_b;
+                4'd1: expected = rand_a - rand_b;
+                4'd2: expected = rand_a & rand_b;
+                4'd3: expected = rand_a | rand_b;
+                4'd4: expected = rand_a ^ rand_b;
+                4'd5: expected = rand_a << rand_b[4:0];
+                4'd6: expected = rand_a >> rand_b[4:0];
+                4'd7: expected = $signed(rand_a) >>> rand_b[4:0];
+                4'd8: expected = ($signed(rand_a) < $signed(rand_b)) ? 32'd1 : 32'd0;
+                4'd9: expected = (rand_a < rand_b) ? 32'd1 : 32'd0;
+                default: expected = 32'd0;
+            endcase
+
+            check(rand_a, rand_b, rand_op, expected, "Random ALU test");
         end
 
         $display("--------------------------------");
